@@ -36,24 +36,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td contenteditable="true">1029B</td>
-        <td contenteditable="true">1</td>
-        <td contenteditable="true">CNK9221GVV</td>
-        <td contenteditable="true">1H9521ZN8P</td>
-        <td contenteditable="true">XB2002</td>
-        <td contenteditable="true"></td>
-        <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
-      </tr>
-      <tr>
-        <td contenteditable="true">1024B</td>
-        <td contenteditable="true">2</td>
-        <td contenteditable="true">CNK9221GWR</td>
-        <td contenteditable="true">1H9521ZNPK</td>
-        <td contenteditable="true">XB2002</td>
-        <td contenteditable="true">Manca etichetta desk</td>
-        <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
-      </tr>
+      <!-- Popolato automaticamente dal JSON -->
     </tbody>
   </table>
 
@@ -93,6 +76,24 @@
       }
     }
 
+    // Popola la tabella con i dati caricati da JSON
+    function populateTable(data) {
+      const tbody = document.querySelector("#postazioni tbody");
+      tbody.innerHTML = "";
+      data.forEach(item => {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+          <td contenteditable="true">${item.stanza}</td>
+          <td contenteditable="true">${item.scrivania}</td>
+          <td contenteditable="true">${item.workstation}</td>
+          <td contenteditable="true">${item.monitor}</td>
+          <td contenteditable="true">${item.docking}</td>
+          <td contenteditable="true">${item.note}</td>
+          <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
+        `;
+      });
+    }
+    
     // Carica automaticamente i dati dal file JSON
     async function loadJSON() {
       try {
@@ -129,6 +130,7 @@
 
 </body>
 </html>
+
 
 
 
