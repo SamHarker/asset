@@ -20,7 +20,11 @@
 
   <h1>📋 Gestione Postazioni di Lavoro</h1>
   <div id="dupCount">⚠️ Duplicati trovati: 0</div>
-
+  
+  <button class="btn" onclick="exportJSON()">💾 Salva in JSON</button>
+  <input type="file" id="fileInput" class="btn" accept=".json">
+  <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
+  
   <table id="postazioni">
     <thead>
       <tr>
@@ -107,3 +111,4 @@
 
 </body>
 </html>
+
