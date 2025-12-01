@@ -10,8 +10,8 @@
     thead tr { background:black; }
     tbody tr:nth-child(odd){ background:#4d4d4d; }
     tbody tr:nth-child(even){ background:#808080; }
-    .duplicate { background-color:#ff4444; color:white; font-weight:bold; }
-    #dupCount { margin:15px; font-size:18px; font-weight:bold; color:yellow; }
+    .btn { margin:10px; padding:10px 20px; background:red; color:white; border:none; border-radius:6px; cursor:pointer; }
+    .btn:hover { background:darkred; }
     .remove-btn { background:#cc0000; color:white; border:none; padding:4px 8px; border-radius:4px; cursor:pointer; }
     .remove-btn:hover { background:#990000; }
   </style>
@@ -19,11 +19,10 @@
 <body>
 
   <h1>📋 Gestione Postazioni di Lavoro</h1>
-  <div id="dupCount">⚠️ Duplicati trovati: 0</div>
-  
-  <button class="btn" onclick="exportJSON()">💾 Salva in JSON</button>
+
+  <button class="btn" onclick="saveToGitHub()">💾 Salva su GitHub</button>
   <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
-  
+
   <table id="postazioni">
     <thead>
       <tr>
@@ -37,76 +36,64 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Popolato automaticamente -->
+      <tr>
+        <td contenteditable="true">1029B</td>
+        <td contenteditable="true">1</td>
+        <td contenteditable="true">CNK9221GVV</td>
+        <td contenteditable="true">1H9521ZN8P</td>
+        <td contenteditable="true">XB2002</td>
+        <td contenteditable="true"></td>
+        <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
+      </tr>
+      <tr>
+        <td contenteditable="true">1024B</td>
+        <td contenteditable="true">2</td>
+        <td contenteditable="true">CNK9221GWR</td>
+        <td contenteditable="true">1H9521ZNPK</td>
+        <td contenteditable="true">XB2002</td>
+        <td contenteditable="true">Manca etichetta desk</td>
+        <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
+      </tr>
     </tbody>
   </table>
 
   <script>
-    function highlightDuplicates() {
-      const table = document.getElementById("postazioni");
-      const colsToCheck = [2, 3, 4];
-      let duplicateCount = 0;
+    // Funzione per raccogliere i dati e inviare a GitHub
+    async function saveToGitHub() {
+      const rows = Array.from(document.querySelector("#postazioni tbody").rows).map(row => ({
+        stanza: row.cells[0].textContent.trim(),
+        scrivania: row.cells[1].textContent.trim(),
+        workstation: row.cells[2].textContent.trim(),
+        monitor: row.cells[3].textContent.trim(),
+        docking: row.cells[4].textContent.trim(),
+        note: row.cells[5].textContent.trim()
+      }));
 
-      Array.from(table.tBodies[0].rows).forEach(row => {
-        colsToCheck.forEach(i => row.cells[i].classList.remove("duplicate"));
+      // ⚠️ In produzione NON inserire il token qui, usa un backend o GitHub Actions
+      const token = "TUO_TOKEN_PERSONALE";
+      const repo = "tuo-utente/tuo-repo";
+
+      const response = await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
+        method: "POST",
+        headers: {
+          "Accept": "application/vnd.github+json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          event_type: "update-json",
+          client_payload: { postazioni: rows }
+        })
       });
 
-      colsToCheck.forEach(colIndex => {
-        const values = {};
-        Array.from(table.tBodies[0].rows).forEach(row => {
-          const cell = row.cells[colIndex];
-          const val = cell.textContent.trim();
-          if (val) {
-            if (values[val]) {
-              cell.classList.add("duplicate");
-              values[val].classList.add("duplicate");
-              duplicateCount++;
-            } else {
-              values[val] = cell;
-            }
-          }
-        });
-      });
-
-      document.getElementById("dupCount").textContent = `⚠️ Duplicati trovati: ${duplicateCount}`;
-    }
-
-    function populateTable(data) {
-      const tbody = document.querySelector("#postazioni tbody");
-      tbody.innerHTML = "";
-      data.forEach(item => {
-        const row = tbody.insertRow();
-        row.innerHTML = `
-          <td contenteditable="true">${item.stanza}</td>
-          <td contenteditable="true">${item.scrivania}</td>
-          <td contenteditable="true">${item.workstation}</td>
-          <td contenteditable="true">${item.monitor}</td>
-          <td contenteditable="true">${item.docking}</td>
-          <td contenteditable="true">${item.note}</td>
-          <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
-        `;
-      });
-      highlightDuplicates();
-    }
-
-    async function loadJSON() {
-      try {
-        const response = await fetch("postazioni.json");
-        if (!response.ok) throw new Error("File non trovato");
-        const data = await response.json();
-        populateTable(data);
-      } catch (error) {
-        alert("⚠️ Errore nel caricamento del JSON: " + error.message);
+      if (response.ok) {
+        alert("✅ Workflow avviato: i dati verranno salvati su GitHub!");
+      } else {
+        alert("⚠️ Errore nell'avvio del workflow");
+        console.error(await response.json());
       }
     }
 
-    function removeRow(button) {
-      button.closest("tr").remove();
-      highlightDuplicates();
-    }
- }
-
-    // Aggiunge una nuova riga vuota con pulsante rimozione
+    // Funzione per aggiungere una nuova riga vuota
     function addRow() {
       const tbody = document.querySelector("#postazioni tbody");
       const row = tbody.insertRow();
@@ -120,11 +107,12 @@
         <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
       `;
     }
-    
-    window.onload = loadJSON;
+
+    // Funzione per rimuovere una riga
+    function removeRow(button) {
+      button.closest("tr").remove();
+    }
   </script>
 
 </body>
 </html>
-
-
