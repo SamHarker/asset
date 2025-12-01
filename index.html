@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestione Postazioni di Lavoro</title>
+  <style>
+    body { font-family: Arial; background:#2b2b2b; color:white; text-align:center; }
+    table { border-collapse: collapse; width:90%; margin:20px auto; }
+    th, td { border:1px solid red; padding:8px; text-align:center; }
+    thead tr { background:black; }
+    tbody tr:nth-child(odd){ background:#4d4d4d; }
+    tbody tr:nth-child(even){ background:#808080; }
+
+    .duplicate { background-color:#ff4444; color:white; font-weight:bold; }
+    #dupCount { margin:15px; font-size:18px; font-weight:bold; color:yellow; }
+
+    .btn { margin:10px; padding:10px 20px; background:red; color:white; border:none; border-radius:6px; cursor:pointer; }
+    .btn:hover { background:darkred; }
+    .remove-btn { background:#cc0000; color:white; border:none; padding:4px 8px; border-radius:4px; cursor:pointer; }
+    .remove-btn:hover { background:#990000; }
+  </style>
+</head>
+<body>
+
+  <h1>📋 Gestione Postazioni di Lavoro</h1>
+  <div id="dupCount">⚠️ Duplicati trovati: 0</div>
+
+  <button class="btn" onclick="exportJSON()">💾 Salva in JSON</button>
+  <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
+
+  <table id="postazioni">
+    <thead>
+      <tr>
+        <th>Stanza</th>
+        <th>Scrivania</th>
+        <th>Workstation</th>
+        <th>Monitor</th>
+        <th>Docking</th>
+        <th>Note</th>
+        <th>Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Le righe verranno popolate automaticamente dal JSON -->
+    </tbody>
+  </table>
+
+  <script>
+    function highlightDuplicates() {
+      const table = document.getElementById("postazioni");
+      const colsToCheck = [2, 3, 4]; // Workstation, Monitor, Docking
+      let duplicateCount = 0;
+
+      Array.from(table.tBodies[0].rows).forEach(row => {
+        colsToCheck.forEach(i => row.cells[i].classList.remove("duplicate"));
+      });
+
+      colsToCheck.forEach(colIndex => {
+        const values = {};
+        Array.from(table.tBodies[0].rows).forEach(row => {
+          const cell = row.cells[colIndex];
+          const val = cell.textContent.trim();
+          if (val) {
+            if (values[val]) {
+              cell.classList.add("duplicate");
+              values[val].classList.add("duplicate");
+              duplicateCount++;
+            } else {
+              values[val] = cell;
+            }
+          }
+        });
+      });
+
+      document.getElementById("dupCount").textContent = `⚠️ Duplicati trovati: ${duplicateCount}`;
+    }
+
+    // Esporta i dati della tabella in JSON scaricabile
+    function exportJSON() {
+      const rows = Array.from(document.querySelector("#postazioni tbody").rows).map(row => ({
+        stanza: row.cells[0].textContent.trim(),
+        scrivania: row.cells[1].textContent.trim(),
+        workstation: row.cells[2].textContent.trim(),
+        monitor: row.cells[3].textContent.trim(),
+        docking: row.cells[4].textContent.trim(),
+        note: row.cells[5].textContent.trim()
+      }));
+
+      const blob = new Blob([JSON.stringify(rows, null, 2)], {type: "application/json"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "postazioni.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Popola la tabella con i dati caricati da un file JSON
+    function populateTable(data) {
+      const tbody = document.querySelector("#postazioni tbody");
+      tbody.innerHTML = "";
+      data.forEach(item => {
+        const row = tbody.insertRow();
+        row.innerHTML = `
+          <td contenteditable="true">${item.stanza}</td>
+          <td contenteditable="true">${item.scrivania}</td>
+          <td contenteditable="true">${item.workstation}</td>
+          <td contenteditable="true">${item.monitor}</td>
+          <td contenteditable="true">${item.docking}</td>
+          <td contenteditable="true">${item.note}</td>
+          <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
+        `;
+      });
+      highlightDuplicates();
+    }
+
+    // Carica automaticamente i dati dal file JSON all'apertura della pagina
+    async function loadJSON() {
+      try {
+        const response = await fetch("postazioni.json"); // il file deve esistere nel repo
+        const data = await response.json();
+        populateTable(data);
+      } catch (error) {
+        console.error("⚠️ Errore nel caricamento del file JSON:", error);
+      }
+    }
+
+    // Aggiunge una nuova riga vuota con pulsante rimozione
+    function addRow() {
+      const tbody = document.querySelector("#postazioni tbody");
+      const row = tbody.insertRow();
+      row.innerHTML = `
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
+      `;
+    }
+
+    // Rimuove la riga corrispondente
+    function removeRow(button) {
+      const row = button.closest("tr");
+      row.remove();
+      highlightDuplicates();
+    }
+
+    // Carica i dati automaticamente all'apertura
+    window.onload = loadJSON;
+  </script>
+
+</body>
+</html>
