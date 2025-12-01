@@ -58,47 +58,7 @@ document.getElementById("search")?.addEventListener("input", function () {
 
 window.onload = loadData;
 
-// Listener per il pulsante Salva su GitHub
-const saveButton = document.getElementById("save");
-if (saveButton) {
-  saveButton.addEventListener("click", async () => {
-    const rows = Array.from(document.querySelector("#postazioni tbody").rows).map(row => ({
-      stanza: row.cells[0].textContent.trim(),
-      scrivania: row.cells[1].textContent.trim(),
-      workstation: row.cells[2].textContent.trim(),
-      monitor: row.cells[3].textContent.trim(),
-      docking: row.cells[4].textContent.trim(),
-      note: row.cells[5].textContent.trim()
-    }));
-
-    const jsonContent = JSON.stringify(rows, null, 2);
-
-    try {
-      const response = await fetch("https://api.github.com/repos/samharker/asset/actions/workflows/update-json.yml/dispatches", {
-        method: "POST",
-        headers: {
-          "Authorization": "Bearer inserimentodatiasset",
-          "Accept": "application/vnd.github.v3+json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          ref: "main",
-          inputs: { json_content: jsonContent }
-        })
-      });
-
-      if (response.ok) {
-        alert("✅ Salvataggio avviato! Controlla il workflow su GitHub.");
-      } else {
-        const error = await response.json();
-        console.error(error);
-        alert("❌ Errore: " + error.message);
-      }
-    } catch (err) {
-      console.error(err);
-      alert("❌ Errore di rete: " + err.message);
-    }
-  });
 }
+
 
 
