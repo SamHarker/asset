@@ -22,7 +22,6 @@
   <div id="dupCount">⚠️ Duplicati trovati: 0</div>
   
   <button class="btn" onclick="exportJSON()">💾 Salva in JSON</button>
-  <input type="file" id="fileInput" class="btn" accept=".json">
   <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
   
   <table id="postazioni">
@@ -105,10 +104,27 @@
       button.closest("tr").remove();
       highlightDuplicates();
     }
+ }
 
+    // Aggiunge una nuova riga vuota con pulsante rimozione
+    function addRow() {
+      const tbody = document.querySelector("#postazioni tbody");
+      const row = tbody.insertRow();
+      row.innerHTML = `
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td contenteditable="true"></td>
+        <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
+      `;
+    }
+    
     window.onload = loadJSON;
   </script>
 
 </body>
 </html>
+
 
