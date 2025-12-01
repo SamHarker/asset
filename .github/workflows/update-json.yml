@@ -28,4 +28,4 @@ jobs:
           git commit -m "Aggiornamento automatico postazioni.json"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.gh_token }}
