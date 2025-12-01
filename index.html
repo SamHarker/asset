@@ -93,6 +93,18 @@
       }
     }
 
+    // Carica automaticamente i dati dal file JSON
+    async function loadJSON() {
+      try {
+        const response = await fetch("postazioni.json"); // deve trovarsi nella stessa cartella
+        if (!response.ok) throw new Error("File non trovato");
+        const data = await response.json();
+        populateTable(data);
+      } catch (error) {
+        alert("⚠️ Errore nel caricamento del JSON: " + error.message);
+    }
+    }
+
     // Funzione per aggiungere una nuova riga vuota
     function addRow() {
       const tbody = document.querySelector("#postazioni tbody");
@@ -116,4 +128,5 @@
 
 </body>
 </html>
+
 
