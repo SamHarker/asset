@@ -1,0 +1,6 @@
+/* Evidenzia celle duplicate */
+.duplicate {
+  background-color: #ff4444; /* rosso acceso */
+  color: white;
+  font-weight: bold;
+}

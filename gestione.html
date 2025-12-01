@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestione Postazioni</title>
+  <style>
+    body { font-family: Arial; background:#2b2b2b; color:white; text-align:center; }
+    form { margin:20px auto; padding:15px; background:#4d4d4d; border:2px solid red; border-radius:8px; width:70%; }
+    form input { margin:5px; padding:6px; border-radius:4px; border:none; }
+    form button { margin-top:10px; padding:8px 16px; background:red; color:white; border:none; border-radius:4px; cursor:pointer; }
+    form button:hover { background:darkred; }
+    a { display:inline-block; margin:20px; padding:10px 20px; background:red; color:white; text-decoration:none; border-radius:6px; }
+    a:hover { background:darkred; }
+  </style>
+</head>
+<body>
+  <h1>⚙️ Gestione Postazioni</h1>
+
+  <!-- Link per tornare alla tabella -->
+  <a href="index.html">⬅ Torna alla Tabella</a>
+
+  <form id="workForm">
+    <input type="text" id="postazione" placeholder="Postazione (es. PC-001)" required>
+    <input type="text" id="utente" placeholder="Utente assegnato">
+    <input type="text" id="asset" placeholder="Asset principali" required>
+    <input type="text" id="ubicazione" placeholder="Ubicazione">
+    <input type="text" id="stato" placeholder="Stato (Attiva, Libera, Manutenzione)" required>
+    <input type="text" id="note" placeholder="Note">
+    <br>
+    <button type="submit">➕ Aggiungi postazione</button>
+  </form>
+
+  <script>
+    // Qui puoi gestire il salvataggio dei dati (es. localStorage o invio a server)
+    const form = document.getElementById("workForm");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Nuova postazione inserita! (qui puoi collegare il salvataggio su DB o localStorage)");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
