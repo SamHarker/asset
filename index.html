@@ -96,7 +96,7 @@
     // Carica automaticamente i dati dal file JSON
     async function loadJSON() {
       try {
-        const response = await fetch("postazioni.json"); // deve trovarsi nella stessa cartella
+        const response = await fetch(postazioni.json); // deve trovarsi nella stessa cartella
         if (!response.ok) throw new Error("File non trovato");
         const data = await response.json();
         populateTable(data);
@@ -129,6 +129,7 @@
 
 </body>
 </html>
+
 
 
 
