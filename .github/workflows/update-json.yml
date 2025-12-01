@@ -1,31 +1,27 @@
-name: Aggiorna JSON
+name: Aggiorna file postazioni.json
 
 on:
-  workflow_dispatch:   # avvio manuale
-  push:
-    paths:
-      - "postazioni.json"   # si attiva quando modifichi il file
+  repository_dispatch:
+    types: [update-json]   # evento inviato dalla webapp
 
 jobs:
   update-json:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Aggiorna file postazioni.json
+      - name: Scrivi nuovo contenuto JSON
         run: |
-          echo "Aggiornamento file JSON..."
-          # Qui puoi fare modifiche al file se serve
-          # Ad esempio validazione o formattazione
-          cat postazioni.json
+          echo '${{ toJson(github.event.client_payload.postazioni) }}' > postazioni.json
 
       - name: Commit e push modifiche
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add postazioni.json
-          git commit -m "Aggiornamento automatico postazioni.json"
+          git commit -m "Aggiornamento automatico postazioni.json da webapp"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.gh_token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
