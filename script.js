@@ -74,10 +74,10 @@ if (saveButton) {
     const jsonContent = JSON.stringify(rows, null, 2);
 
     try {
-      const response = await fetch("https://api.github.com/repos/<OWNER>/<REPO>/actions/workflows/update-json.yml/dispatches", {
+      const response = await fetch("https://api.github.com/repos/samharker/asset/actions/workflows/update-json.yml/dispatches", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer <TOKEN_PERSONALE_O_GITHUB_APP>",
+          "Authorization": "Bearer inserimentodatiasset",
           "Accept": "application/vnd.github.v3+json",
           "Content-Type": "application/json"
         },
@@ -100,4 +100,5 @@ if (saveButton) {
     }
   });
 }
+
 
