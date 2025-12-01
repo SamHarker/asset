@@ -1,27 +1,26 @@
-name: Aggiorna file postazioni.json
 
+name: Aggiorna postazioni.json
 on:
-  repository_dispatch:
-    types: [update-json]   # evento inviato dalla webapp
+  workflow_dispatch:
+    inputs:
+      json_content:
+        description: 'Contenuto JSON'
+        required: true
 
 jobs:
   update-json:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Scrivi nuovo contenuto JSON
-        run: |
-          echo '${{ toJson(github.event.client_payload.postazioni) }}' > postazioni.json
-
-      - name: Commit e push modifiche
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add postazioni.json
-          git commit -m "Aggiornamento automatico postazioni.json da webapp"
-          git push
+      - name: Aggiorna file
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          echo "${{ github.event.inputs.json_content }}" > postazioni.json
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add postazioni.json
+          git commit -m "Aggiornamento postazioni.json"
+          git push https://x-access-token:${PAT_TOKEN}@github.com/SamHarker/asset.git HEAD:main
