@@ -52,6 +52,48 @@ td input::placeholder {
   font-style: italic; /* opzionale */
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* forza le larghezze */
+}
+
+/* Colonna 1: Stanza */
+#postazioni th:nth-child(1),
+#postazioni td:nth-child(1) {
+  width: 100px; /* più stretta */
+}
+
+/* Colonna 2: Scrivania */
+#postazioni th:nth-child(2),
+#postazioni td:nth-child(2) {
+  width: 80px; /* molto stretta */
+}
+
+/* Colonna 3: Workstation */
+#postazioni th:nth-child(3),
+#postazioni td:nth-child(3) {
+  width: 150px; /* media */
+}
+
+/* Colonna 4: Monitor */
+#postazioni th:nth-child(4),
+#postazioni td:nth-child(4) {
+  width: 120px;
+}
+
+/* Colonna 7: Note */
+#postazioni th:nth-child(7),
+#postazioni td:nth-child(7) {
+  width: 250px; /* più larga per testo */
+}
+
+/* Colonna 9: Azioni */
+#postazioni th:nth-child(9),
+#postazioni td:nth-child(9) {
+  width: 60px; /* molto stretta per il bottone */
+}
+
   </style>
 </head>
 <body>
@@ -224,6 +266,7 @@ td input::placeholder {
       });
     }
   </script>
+
 
 
 
