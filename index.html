@@ -11,6 +11,7 @@
       --btn-color:#fff;
       --border:#ccc;
       --dup:#ff0000;
+      --match:#a5d6a7;        /* verde chiaro per XB2002 */
     }
     body{
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
@@ -37,6 +38,8 @@
       border:1px solid #d0d0d0; border-radius:4px; font-size:14px;
     }
     .cell-dup{ background-color: var(--dup) !important; }
+    .cell-match{  background-color: var(--match) !important; }
+
     .actions-btn{
       background:#e74c3c; color:#fff; border:none; padding:6px 10px;
       border-radius:4px; cursor:pointer;
@@ -201,8 +204,20 @@
           }
         });
       });
+      
+      // === Evidenzia in verde le celle che contengono "XB2002" ===
+      // - Se vuoi il match esatto, usa: value === 'XB2002'
+      // - Se vuoi match "che contiene", usa: value.includes('XB2002')
+      const allInputs = table.querySelectorAll('tbody td input');
+      allInputs.forEach(inp => {
+      const value = inp.value.trim();
+      if (value.includes('XB2002')) {        // <-- match "che contiene"
+      inp.closest('td').classList.add('cell-match');
+      }
+      });
     }
   </script>
+
 
 
 
