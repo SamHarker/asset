@@ -133,6 +133,38 @@
       URL.revokeObjectURL(url);
     }
 
+    
+document.addEventListener("DOMContentLoaded", () => {
+  // Import automatico da file JSON (deve essere nella stessa directory)
+  fetch("postazioni.json")
+    .then(response => {
+      if (!response.ok) throw new Error("Impossibile caricare il file JSON");
+      return response.json();
+    })
+    .then(data => {
+      const tbody = document.querySelector("#postazioni tbody");
+      tbody.innerHTML = "";
+      data.forEach(item => {
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+        <td><input type="text" value="${item.Stanza || ''}" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" value="${item.Scrivania || ''}" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" value="${item.Workstation || ''}" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" value="${item.Monitor || ''}" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" value="${item.Docking || ''}" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" value="${item.Modello ocking || ''}" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" value="${item.Note || ''}" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" value="${item.Kensington || ''}" oninput="highlightDuplicates()" /></td>
+        <td><button class="actions-btn" onclick="deleteRow(this)">❌</button></td>
+      `;
+      tbody.appendChild(newRow);
+    });
+    highlightDuplicates();
+  };
+  reader.readAsText(file);
+}
+
+
     /**
      * Aggiunge una nuova riga con input editabili
      * e riattiva il controllo duplicati.
@@ -217,6 +249,7 @@
   </script>
 </body>
 </html>
+
 
 
 
