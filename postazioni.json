@@ -1,29 +1,1802 @@
 [
   {
     "stanza": "1029B",
-    "scrivania": "1",
-    "workstation": "CNK9221GVV",
-    "monitor": "1H9521ZN8P",
-    "docking": "n/a",
-    "kensington": "XB2002",
-    "note": ""
+    "scrivania": 1,
+    "workstation": "",
+    "monitor": "CNK9221GVV",
+    "docking": "1H9521ZN8P",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
   },
   {
     "stanza": "1024B",
-    "scrivania": "2",
-    "workstation": "CNK9221GWR",
-    "monitor": "1H9521ZNPK",
-    "docking": "n/a",
-    "kensington": "XB2002",
-    "note": "Manca etichetta desk"
+    "scrivania": 2,
+    "workstation": "",
+    "monitor": "CNK9221GWR",
+    "docking": "1H9521ZNPK",
+    "modello_docking": "",
+    "note": "Manca etichetta desk",
+    "kensington": "XB2002"
   },
   {
-    "stanza": "1025A",
-    "scrivania": "3",
-    "workstation": "CNK9221GWR",
-    "monitor": "1H9521ZN8P",
-    "docking": "XB2002",
-    "kensington": "XB2002",
-    "note": ""
+    "stanza": "1028B",
+    "scrivania": 4,
+    "workstation": "",
+    "monitor": "CNK9221GWM",
+    "docking": "1H9521ZNNJ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1029B",
+    "scrivania": 162,
+    "workstation": "",
+    "monitor": "CNK9221GWJ",
+    "docking": "1H9521ZNM1",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1028B",
+    "scrivania": 5,
+    "workstation": "",
+    "monitor": "CNK9221GWG",
+    "docking": "1H9521ZNP2",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1026B",
+    "scrivania": 6,
+    "workstation": "",
+    "monitor": "CNK9221GWF",
+    "docking": "1H9521ZNN5",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1026B",
+    "scrivania": 7,
+    "workstation": "",
+    "monitor": "CNK9221GWB",
+    "docking": "1H9521ZH4N",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1026B",
+    "scrivania": 8,
+    "workstation": "",
+    "monitor": "CNK9221GWQ",
+    "docking": "1H9520ZNGK",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1026B",
+    "scrivania": 9,
+    "workstation": "",
+    "monitor": "CNK9221GWH",
+    "docking": "1H9520X4D4",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1025B",
+    "scrivania": 10,
+    "workstation": "",
+    "monitor": "CNK9221GWS",
+    "docking": "1H9521ZM7C",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1025B",
+    "scrivania": 11,
+    "workstation": "",
+    "monitor": "CNK9221GWP",
+    "docking": "1H9520X4S9",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1025B",
+    "scrivania": 12,
+    "workstation": "",
+    "monitor": "CNK9221GWD",
+    "docking": "1H9520X4MN",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1025B",
+    "scrivania": 13,
+    "workstation": "",
+    "monitor": "CNK9221GWC",
+    "docking": "1H9521ZH42",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1024B",
+    "scrivania": 14,
+    "workstation": "",
+    "monitor": "CNK9221GWL",
+    "docking": "1H9521ZGYH",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 15,
+    "workstation": "",
+    "monitor": "CNK9221GXF",
+    "docking": "1H9521ZM81",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 16,
+    "workstation": "",
+    "monitor": "3CQ8460ZF7",
+    "docking": "1H9521ZN60",
+    "modello_docking": "",
+    "note": "Verificare S/N  N60 posizionata su desk 106",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 17,
+    "workstation": "",
+    "monitor": "",
+    "docking": "1H9521ZNLK",
+    "modello_docking": "",
+    "note": "Ex-postazione WS",
+    "kensington": ""
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 18,
+    "workstation": "",
+    "monitor": "?",
+    "docking": "?",
+    "modello_docking": "",
+    "note": "Verificare S/N",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 19,
+    "workstation": "",
+    "monitor": "CNC8520N2G",
+    "docking": "1H9521ZNK1",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 20,
+    "workstation": "",
+    "monitor": "",
+    "docking": "1H9521ZNPV",
+    "modello_docking": "",
+    "note": "Ex-postazione WS",
+    "kensington": ""
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 21,
+    "workstation": "",
+    "monitor": "CNK9221GXH",
+    "docking": "1H9521ZNHS",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 22,
+    "workstation": "",
+    "monitor": "",
+    "docking": "1H9521ZNQ6",
+    "modello_docking": "",
+    "note": "Ex-postazione WS",
+    "kensington": ""
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 23,
+    "workstation": "",
+    "monitor": "CNK9221ZGX",
+    "docking": "1H9521ZNKV",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1030B",
+    "scrivania": 24,
+    "workstation": "",
+    "monitor": "CNC8460R9Z",
+    "docking": "1H9521ZNKY",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1031B",
+    "scrivania": 25,
+    "workstation": "",
+    "monitor": "CNK9182K78",
+    "docking": "1H9521ZNN2",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1031B",
+    "scrivania": 26,
+    "workstation": "",
+    "monitor": "3CQ84524V4",
+    "docking": "1H9521ZNJ6",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1031B",
+    "scrivania": 27,
+    "workstation": "",
+    "monitor": "CNK9221GSD",
+    "docking": "1H9521ZNHM",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1031B",
+    "scrivania": 28,
+    "workstation": "",
+    "monitor": "CNC8520N1X",
+    "docking": "1H9521ZNF9",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1032B",
+    "scrivania": 29,
+    "workstation": "",
+    "monitor": "CNC8460RB5",
+    "docking": "1H9521ZNF6",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1032B",
+    "scrivania": 30,
+    "workstation": "",
+    "monitor": "CNK9221GVY",
+    "docking": "1H9521ZFTV",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1032B",
+    "scrivania": 31,
+    "workstation": "",
+    "monitor": "CNK9221ZT1",
+    "docking": "1H9521ZNHN",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1032B",
+    "scrivania": 32,
+    "workstation": "",
+    "monitor": "3CQ8480550",
+    "docking": "1H9521ZNM5",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1033B",
+    "scrivania": 33,
+    "workstation": "",
+    "monitor": "CNK9221GVF",
+    "docking": "1H9521ZNLL",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1033B",
+    "scrivania": 34,
+    "workstation": "",
+    "monitor": "CNC8520N26",
+    "docking": "1H9521ZNP3",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1033B",
+    "scrivania": 35,
+    "workstation": "",
+    "monitor": "3CQ8460ZDS",
+    "docking": "1H9521ZNMB",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1033B",
+    "scrivania": 36,
+    "workstation": "",
+    "monitor": "CNK9221ZTG",
+    "docking": "1H9521ZM96",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1034B",
+    "scrivania": 37,
+    "workstation": "",
+    "monitor": "3CQ848053Z",
+    "docking": "1H9521ZM81",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1034B",
+    "scrivania": 38,
+    "workstation": "",
+    "monitor": "CNC8460RBG",
+    "docking": "1H9521ZNLN",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1034B",
+    "scrivania": 39,
+    "workstation": "",
+    "monitor": "CNC8460RBH",
+    "docking": "1H9521ZNM4",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1034B",
+    "scrivania": 40,
+    "workstation": "",
+    "monitor": "CNK9221GX6",
+    "docking": "1H9521ZMSG",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1035B",
+    "scrivania": 41,
+    "workstation": "",
+    "monitor": "CNC8520N2L",
+    "docking": "1H9521ZNLZ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1035B",
+    "scrivania": 42,
+    "workstation": "",
+    "monitor": "3CQ848055G",
+    "docking": "1H9521ZGYN",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1035B",
+    "scrivania": 43,
+    "workstation": "",
+    "monitor": "CNC94433RG",
+    "docking": "1H9521ZNP7",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1035B",
+    "scrivania": 44,
+    "workstation": "",
+    "monitor": "CNK9221ZGP",
+    "docking": "1H9521ZGZ1",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1053A",
+    "scrivania": 178,
+    "workstation": "",
+    "monitor": "CNC8520N2F",
+    "docking": "1H9521ZN69",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1053A",
+    "scrivania": 179,
+    "workstation": "",
+    "monitor": "CNC94433Z4",
+    "docking": "1H9521ZNMT",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1053A",
+    "scrivania": 177,
+    "workstation": "",
+    "monitor": "CNK92311JM",
+    "docking": "1H9521ZNGM",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1053A",
+    "scrivania": 176,
+    "workstation": "",
+    "monitor": "CNC8460QFP",
+    "docking": "1H9521ZNLH",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1041B",
+    "scrivania": 49,
+    "workstation": "",
+    "monitor": "CNK9221GW7",
+    "docking": "1H9521ZNMP",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1041B",
+    "scrivania": 50,
+    "workstation": "",
+    "monitor": "CNC8460RBF",
+    "docking": "1H9521ZNGW",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1041B",
+    "scrivania": 51,
+    "workstation": "",
+    "monitor": "CNK92312GF",
+    "docking": "1H9521ZNP0",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1041B",
+    "scrivania": 52,
+    "workstation": "",
+    "monitor": "CNC9190P77",
+    "docking": "1H9521ZNPF",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1042B",
+    "scrivania": 53,
+    "workstation": "",
+    "monitor": "CNC94433R7",
+    "docking": "1H9521ZNN0",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1042B",
+    "scrivania": 54,
+    "workstation": "",
+    "monitor": "CNK9221GVW",
+    "docking": "1H9521ZNLP",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1042B",
+    "scrivania": 55,
+    "workstation": "",
+    "monitor": "CNC9190P7R",
+    "docking": "1H9521ZNPN",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1042B",
+    "scrivania": 56,
+    "workstation": "",
+    "monitor": "CNK9221GSK",
+    "docking": "1H9521ZNL1",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1043B",
+    "scrivania": 57,
+    "workstation": "",
+    "monitor": "3CQ848055S",
+    "docking": "1H9521ZNJJ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1043B",
+    "scrivania": 58,
+    "workstation": "",
+    "monitor": "CNK922201Z",
+    "docking": "1H9521ZNL9",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1043B",
+    "scrivania": 59,
+    "workstation": "",
+    "monitor": "CNK92311JP",
+    "docking": "1H9521ZH4R",
+    "modello_docking": "",
+    "note": "firmware dock aggiornato",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1043B",
+    "scrivania": 60,
+    "workstation": "",
+    "monitor": "CNK9221ZGQ",
+    "docking": "1H9521ZNLT",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1044B",
+    "scrivania": 61,
+    "workstation": "",
+    "monitor": "CNC8241YQX",
+    "docking": "1H9521ZNKD",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1044B",
+    "scrivania": 62,
+    "workstation": "",
+    "monitor": "CNC8460Q0D",
+    "docking": "1H9520X4MC",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1044B",
+    "scrivania": 63,
+    "workstation": "",
+    "monitor": "CNK9221LDV",
+    "docking": "1H9520X4PD",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1044B",
+    "scrivania": 64,
+    "workstation": "",
+    "monitor": "CNK9221GSW",
+    "docking": "1H9520X4T0",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1045B",
+    "scrivania": 65,
+    "workstation": "",
+    "monitor": "CNK9221GW0",
+    "docking": "1H9521ZNLR",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1045B",
+    "scrivania": 66,
+    "workstation": "",
+    "monitor": "CNK9221GV9",
+    "docking": "1H9520X4NG",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1045B",
+    "scrivania": 67,
+    "workstation": "",
+    "monitor": "CNK9221GXR",
+    "docking": "1H9521ZGYB",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1045B",
+    "scrivania": 68,
+    "workstation": "",
+    "monitor": "CNK9221GXX",
+    "docking": "1H9521ZNM2",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1047B",
+    "scrivania": 69,
+    "workstation": "",
+    "monitor": "CNK9231130",
+    "docking": "1H9521ZNPC",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1047B",
+    "scrivania": 70,
+    "workstation": "",
+    "monitor": "CNK9221GWW",
+    "docking": "1H9521ZGYR",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1047B",
+    "scrivania": 71,
+    "workstation": "",
+    "monitor": "3CQ848055Q",
+    "docking": "1H9521ZNH1",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1047B",
+    "scrivania": 72,
+    "workstation": "",
+    "monitor": "3CQ84805K4",
+    "docking": "1H9521ZN8D",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1048B",
+    "scrivania": 73,
+    "workstation": "",
+    "monitor": "CNK9221ZHK",
+    "docking": "1H9521ZNHJ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1048B",
+    "scrivania": 74,
+    "workstation": "",
+    "monitor": "3CQ848055V",
+    "docking": "1H9521ZNK0",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1048B",
+    "scrivania": 75,
+    "workstation": "",
+    "monitor": "CNK92312G5",
+    "docking": "1H9521ZGVD",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1048B",
+    "scrivania": 76,
+    "workstation": "",
+    "monitor": "CNK92311JK",
+    "docking": "1H9521ZNNY",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1049B",
+    "scrivania": 77,
+    "workstation": "",
+    "monitor": "CNC94433RN",
+    "docking": "1H9521ZN77",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1049B",
+    "scrivania": 78,
+    "workstation": "",
+    "monitor": "CNK9221GXJ",
+    "docking": "1H9521ZNNF",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1049B",
+    "scrivania": 79,
+    "workstation": "",
+    "monitor": "CNK9221GSZ",
+    "docking": "1H9521ZNLY",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1049B",
+    "scrivania": 80,
+    "workstation": "",
+    "monitor": "CNK92311JJ",
+    "docking": "1H9521ZNMX",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1050B",
+    "scrivania": 81,
+    "workstation": "",
+    "monitor": "CNK9221ZH6",
+    "docking": "1H9521ZN3T",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1050B",
+    "scrivania": 82,
+    "workstation": "",
+    "monitor": "CNC8460RBC",
+    "docking": "1H9521ZNMG",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1050B",
+    "scrivania": 83,
+    "workstation": "",
+    "monitor": "CNK92311JH",
+    "docking": "1H9521ZNMF",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1050B",
+    "scrivania": 84,
+    "workstation": "",
+    "monitor": "CNK9221GXS",
+    "docking": "1H9521ZNMN",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1051B",
+    "scrivania": 85,
+    "workstation": "",
+    "monitor": "CNC8460R9R",
+    "docking": "1H9521ZH5H",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1051B",
+    "scrivania": 86,
+    "workstation": "",
+    "monitor": "CNK9222029",
+    "docking": "1H9521ZNK3",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1051B",
+    "scrivania": 87,
+    "workstation": "",
+    "monitor": "CNK9221GJC",
+    "docking": "1H9521ZNL3",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1051B",
+    "scrivania": 88,
+    "workstation": "",
+    "monitor": "CNC9190P76",
+    "docking": "1H9521ZNMJ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1052B",
+    "scrivania": 89,
+    "workstation": "",
+    "monitor": "CNC9190P7H",
+    "docking": "5CG435ZN56",
+    "modello_docking": "",
+    "note": "Verificare S/N",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1052B",
+    "scrivania": 90,
+    "workstation": "",
+    "monitor": "3CQ8460ZF5",
+    "docking": "5CG435ZN4G",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1052B",
+    "scrivania": 91,
+    "workstation": "",
+    "monitor": "3CQ84805KD",
+    "docking": "5CG435ZN4H",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1052B",
+    "scrivania": 92,
+    "workstation": "",
+    "monitor": "CNK9182K71",
+    "docking": "5CG435ZM4F",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1052B",
+    "scrivania": 93,
+    "workstation": "",
+    "monitor": "3CQ84805K2",
+    "docking": "5CG032ZPZH",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1052B",
+    "scrivania": 94,
+    "workstation": "",
+    "monitor": "CNK9221GSQ",
+    "docking": "5CG435ZN3P",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1052B",
+    "scrivania": 95,
+    "workstation": "",
+    "monitor": "3CQ848055P",
+    "docking": "5CG435ZN4D",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1052B",
+    "scrivania": 96,
+    "workstation": "",
+    "monitor": "CNC8241YRH",
+    "docking": "5CG003VHGC",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1054A",
+    "scrivania": 97,
+    "workstation": "",
+    "monitor": "3CQ848054S",
+    "docking": "5CG432ZB20",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1054A",
+    "scrivania": 98,
+    "workstation": "",
+    "monitor": "CNK9182K72",
+    "docking": "5CG307W5CK",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1054A",
+    "scrivania": 99,
+    "workstation": "",
+    "monitor": "CNC9190P7Y",
+    "docking": "5CG432Z9ZJ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1054A",
+    "scrivania": 154,
+    "workstation": "",
+    "monitor": "6CM9042NHF",
+    "docking": "5CG432Z910",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1055A",
+    "scrivania": 100,
+    "workstation": "",
+    "monitor": "CNC9190P7Q",
+    "docking": "C2Q529ZFNF",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1055A",
+    "scrivania": 101,
+    "workstation": "",
+    "monitor": "CNK9221GXQ",
+    "docking": "C2Q529ZFRB",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1055A",
+    "scrivania": 102,
+    "workstation": "",
+    "monitor": "CNK9182K6Y",
+    "docking": "C2Q529ZFP7",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1055A",
+    "scrivania": 103,
+    "workstation": "",
+    "monitor": "CNK9221GXZ",
+    "docking": "C2Q529ZFQH",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1056A",
+    "scrivania": 104,
+    "workstation": "",
+    "monitor": "CNK92311JG",
+    "docking": "5CG001X5VH",
+    "modello_docking": "G2",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1056A",
+    "scrivania": 105,
+    "workstation": "",
+    "monitor": "CNC9190P7D",
+    "docking": "5CG032ZQ5W",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1056A",
+    "scrivania": 106,
+    "workstation": "",
+    "monitor": "CNK9221GT2",
+    "docking": "5CG032ZQ9Q",
+    "modello_docking": "",
+    "note": "1H9521ZN60",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1056A",
+    "scrivania": 107,
+    "workstation": "",
+    "monitor": "CNC8460R9W",
+    "docking": "5CG931ZNNK",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1057A",
+    "scrivania": 108,
+    "workstation": "",
+    "monitor": "cnc8520n2d",
+    "docking": "5CG032ZQC5",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1057A",
+    "scrivania": 109,
+    "workstation": "",
+    "monitor": "3CQ848055D",
+    "docking": "5CG003VGMC",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1057A",
+    "scrivania": 110,
+    "workstation": "",
+    "monitor": "CNC8460RB0",
+    "docking": "5CG931ZNK3",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1057A",
+    "scrivania": 111,
+    "workstation": "",
+    "monitor": "CNC8460R4V",
+    "docking": "1H9521ZNN8",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1058A",
+    "scrivania": 112,
+    "workstation": "",
+    "monitor": "CNK9221GTZ",
+    "docking": "5CG510Z61Q",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1058A",
+    "scrivania": 113,
+    "workstation": "",
+    "monitor": "CNC94433RF",
+    "docking": "8CJ919BH5Z",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1058A",
+    "scrivania": 114,
+    "workstation": "",
+    "monitor": "3CQ8460ZDX",
+    "docking": "8CJ919BL7L",
+    "modello_docking": "",
+    "note": "Sostituire dock di recupero",
+    "kensington": "No Lock"
+  },
+  {
+    "stanza": "1058A",
+    "scrivania": 115,
+    "workstation": "",
+    "monitor": "CNK9221GV8",
+    "docking": "5CG003VHJD",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1059A",
+    "scrivania": 116,
+    "workstation": "",
+    "monitor": "CNC944341D",
+    "docking": "8CJ919BH59",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1059A",
+    "scrivania": 117,
+    "workstation": "",
+    "monitor": "3CQ8460ZDL",
+    "docking": "8CJ919BH56",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1059A",
+    "scrivania": 118,
+    "workstation": "",
+    "monitor": "3CQ8460ZDR",
+    "docking": "8CJ919BL7S",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1059A",
+    "scrivania": 119,
+    "workstation": "",
+    "monitor": "3CQ8460ZF9",
+    "docking": "8CJ650Q23X",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "No Lock"
+  },
+  {
+    "stanza": "1061A",
+    "scrivania": 120,
+    "workstation": "",
+    "monitor": "CNK9221ZGY",
+    "docking": "5CG032ZQ9Q",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1061A",
+    "scrivania": 121,
+    "workstation": "",
+    "monitor": "CNC8460RB6",
+    "docking": "C2Q5299Z99T",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1061A",
+    "scrivania": 122,
+    "workstation": "",
+    "monitor": "3CQ8480554",
+    "docking": "C2Q5299Z99R",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1061A",
+    "scrivania": 123,
+    "workstation": "",
+    "monitor": "3CQ8460ZF8",
+    "docking": "5CG082ZN05",
+    "modello_docking": "",
+    "note": "Sostituire dock di recupero",
+    "kensington": "No Lock"
+  },
+  {
+    "stanza": "1064A",
+    "scrivania": 124,
+    "workstation": "",
+    "monitor": "CNK9221GW1",
+    "docking": "C2Q529ZFK9",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1064A",
+    "scrivania": 125,
+    "workstation": "",
+    "monitor": "CNK9221GXG",
+    "docking": "C2Q529ZFJC",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1064A",
+    "scrivania": 126,
+    "workstation": "",
+    "monitor": "CNK9221GVL",
+    "docking": "C2Q529ZFHQ",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1064A",
+    "scrivania": 127,
+    "workstation": "",
+    "monitor": "CNK9222028",
+    "docking": "C2Q529ZFFC",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1065A",
+    "scrivania": 128,
+    "workstation": "",
+    "monitor": "3CQ8460ZDV",
+    "docking": "C2Q529ZCJQ",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1065A",
+    "scrivania": 129,
+    "workstation": "",
+    "monitor": "CNC8520N2T",
+    "docking": "C2Q529ZFDX",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1065A",
+    "scrivania": 130,
+    "workstation": "",
+    "monitor": "3CQ8480557",
+    "docking": "C2Q529ZFJL",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1065A",
+    "scrivania": 131,
+    "workstation": "",
+    "monitor": "3CQ8460ZF1",
+    "docking": "C2Q529ZBH4",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1066A",
+    "scrivania": 132,
+    "workstation": "",
+    "monitor": "6CM8081WZB",
+    "docking": "5CG931ZNMQ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1066A",
+    "scrivania": 133,
+    "workstation": "",
+    "monitor": "6CM9042NHD",
+    "docking": "5CG032ZQ7R",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1066A",
+    "scrivania": 134,
+    "workstation": "",
+    "monitor": "6CM9521F4L",
+    "docking": "C2Q529ZC1W",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1066A",
+    "scrivania": 135,
+    "workstation": "",
+    "monitor": "6CM9521F63",
+    "docking": "C2Q529ZCKV",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1067A",
+    "scrivania": 136,
+    "workstation": "",
+    "monitor": "3CQ848054Z",
+    "docking": "5CG307XZGC",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1067A",
+    "scrivania": 137,
+    "workstation": "",
+    "monitor": "CNC94433RH",
+    "docking": "1H9521ZNMQ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1067A",
+    "scrivania": 138,
+    "workstation": "",
+    "monitor": "3CQ8460ZDT",
+    "docking": "5CG002XQ7X",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1067A",
+    "scrivania": 139,
+    "workstation": "",
+    "monitor": "3CQ8480543",
+    "docking": "5CG001ZMCN",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1068A",
+    "scrivania": 140,
+    "workstation": "",
+    "monitor": "CNK9221GVD",
+    "docking": "1H9520X4RP",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1070A",
+    "scrivania": 141,
+    "workstation": "",
+    "monitor": "6CM9030PTJ",
+    "docking": "C2Q529ZC9F",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1070A",
+    "scrivania": 142,
+    "workstation": "",
+    "monitor": "6CM95003Q5",
+    "docking": "C2Q529Z8MT",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1070A",
+    "scrivania": 143,
+    "workstation": "",
+    "monitor": "6CM8081WZ6",
+    "docking": "C2Q529ZC03",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1070A",
+    "scrivania": 144,
+    "workstation": "",
+    "monitor": "6CM8171P9Q",
+    "docking": "C2Q529Z8NH",
+    "modello_docking": "",
+    "note": "AGGIUNTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1071A",
+    "scrivania": 145,
+    "workstation": "",
+    "monitor": "6CM9030PTM",
+    "docking": "1H9521ZH6J",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1071A",
+    "scrivania": 146,
+    "workstation": "",
+    "monitor": "6CM8171PYK",
+    "docking": "1H9520X3WW",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1071A",
+    "scrivania": 147,
+    "workstation": "",
+    "monitor": "6CM95004CW",
+    "docking": "1H9521ZNNX",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1071A",
+    "scrivania": 148,
+    "workstation": "",
+    "monitor": "?",
+    "docking": "1H9521ZH4S",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1072A",
+    "scrivania": 149,
+    "workstation": "",
+    "monitor": "6CM95003N9",
+    "docking": "1H9520Z8XF",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1072A",
+    "scrivania": 150,
+    "workstation": "",
+    "monitor": "6CM8171PY7",
+    "docking": "1H9521ZNNM",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1072A",
+    "scrivania": 151,
+    "workstation": "",
+    "monitor": "6CM8081XB4",
+    "docking": "1H9520X4SL",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1072A",
+    "scrivania": 152,
+    "workstation": "",
+    "monitor": "6CM9030PVY",
+    "docking": "?",
+    "modello_docking": "",
+    "note": "Verificare i seriali",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1072A",
+    "scrivania": 153,
+    "workstation": "",
+    "monitor": "",
+    "docking": "",
+    "modello_docking": "",
+    "note": "No dock (monitor Dell)",
+    "kensington": "No Lock"
+  },
+  {
+    "stanza": "1001A",
+    "scrivania": 155,
+    "workstation": "",
+    "monitor": "CNK92311J6",
+    "docking": "1H9521ZNNT",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1002A",
+    "scrivania": 156,
+    "workstation": "",
+    "monitor": "CNK9182K6D",
+    "docking": "1H9521ZN5H",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1003A",
+    "scrivania": 157,
+    "workstation": "",
+    "monitor": "CNK92312GR",
+    "docking": "1H9521ZNNH",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1004A",
+    "scrivania": 158,
+    "workstation": "",
+    "monitor": "CNC944341C",
+    "docking": "1H9521ZNLD",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1062A",
+    "scrivania": 161,
+    "workstation": "",
+    "monitor": "CNC94433PD",
+    "docking": "1H9521ZNN7",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1062A",
+    "scrivania": 180,
+    "workstation": "",
+    "monitor": "CNK9221GWN",
+    "docking": "1H9521ZNK7",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1062A",
+    "scrivania": 160,
+    "workstation": "",
+    "monitor": "CNK9221H8H",
+    "docking": "1H9521ZNN3",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1062A",
+    "scrivania": 181,
+    "workstation": "",
+    "monitor": "CNC94433PC",
+    "docking": "1H9521ZGZ6",
+    "modello_docking": "",
+    "note": "SPOSTAMENTO",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1009A",
+    "scrivania": 163,
+    "workstation": "",
+    "monitor": "3CQ84524TT",
+    "docking": "1H9521ZNKJ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1010A",
+    "scrivania": 164,
+    "workstation": "",
+    "monitor": "6CM6470D65",
+    "docking": "1H9521ZGVW",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1010A",
+    "scrivania": 165,
+    "workstation": "",
+    "monitor": "6CM6080KG4",
+    "docking": "1H9521ZNMC",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1010A",
+    "scrivania": 166,
+    "workstation": "",
+    "monitor": "6CM6470DB4",
+    "docking": "1H9521ZNKK",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1010A",
+    "scrivania": 167,
+    "workstation": "",
+    "monitor": "6CM6080K69",
+    "docking": "1H9521ZNH5",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1012A",
+    "scrivania": 168,
+    "workstation": "",
+    "monitor": "6CM6470D62",
+    "docking": "1H9521ZNDW",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1012A",
+    "scrivania": 169,
+    "workstation": "",
+    "monitor": "6CM6080K6N",
+    "docking": "1H9521ZGZ3",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1012A",
+    "scrivania": 170,
+    "workstation": "",
+    "monitor": "6CM6080KGH",
+    "docking": "1H9521ZN65",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1012A",
+    "scrivania": 171,
+    "workstation": "",
+    "monitor": "6CM70302K5",
+    "docking": "1H9521ZNKX",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1013A",
+    "scrivania": 172,
+    "workstation": "",
+    "monitor": "6CM8081WZ5",
+    "docking": "1H9521ZLYQ",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1013A",
+    "scrivania": 173,
+    "workstation": "",
+    "monitor": "6CM95003SR",
+    "docking": "1H9521ZN73",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1013A",
+    "scrivania": 174,
+    "workstation": "",
+    "monitor": "6CM6470DNR",
+    "docking": "1H9521ZNL0",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "1013A",
+    "scrivania": 175,
+    "workstation": "",
+    "monitor": "6CM8171QF3",
+    "docking": "1H9521ZNKR",
+    "modello_docking": "",
+    "note": "",
+    "kensington": "XB2002"
+  },
+  {
+    "stanza": "2027B",
+    "scrivania": "",
+    "workstation": "",
+    "monitor": "CNK9221GXK",
+    "docking": "1H9521ZNJS",
+    "modello_docking": "",
+    "note": "Ufficio Mauro Pugno",
+    "kensington": ""
+  },
+  {
+    "stanza": "2028B",
+    "scrivania": "",
+    "workstation": "",
+    "monitor": "6CM8171P9V",
+    "docking": "",
+    "modello_docking": "",
+    "note": "Ufficio Serena Fenati",
+    "kensington": ""
+  },
+  {
+    "stanza": "",
+    "scrivania": "",
+    "workstation": "",
+    "monitor": "",
+    "docking": "",
+    "modello_docking": "",
+    "note": "",
+    "kensington": ""
+  },
+  {
+    "stanza": "",
+    "scrivania": "",
+    "workstation": "",
+    "monitor": "",
+    "docking": "",
+    "modello_docking": "",
+    "note": "",
+    "kensington": ""
+  },
+  {
+    "stanza": "",
+    "scrivania": "",
+    "workstation": "",
+    "monitor": "CNK9221GX4",
+    "docking": "1H9520X4P6",
+    "modello_docking": "",
+    "note": "Verificare locazione Rimossa da postazione 153",
+    "kensington": ""
   }
 ]
