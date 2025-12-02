@@ -31,6 +31,7 @@
         <th>Workstation</th>
         <th>Monitor</th>
         <th>Docking</th>
+        <th>Modello Docking</th>
         <th>Kensington</th>
         <th>Note</th>
         <th>Azioni</th>
@@ -88,6 +89,7 @@ function exportTableToJSON() {
           <td contenteditable="true">${item.workstation}</td>
           <td contenteditable="true">${item.monitor}</td>
           <td contenteditable="true">${item.docking}</td>
+          <td contenteditable="true">${item.modello_docking}</td>
           <td contenteditable="true">${item.kensington}</td>
           <td contenteditable="true">${item.note}</td>
           <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
@@ -113,6 +115,7 @@ function exportTableToJSON() {
       const tbody = document.querySelector("#postazioni tbody");
       const row = tbody.insertRow();
       row.innerHTML = `
+        <td contenteditable="true"></td>
         <td contenteditable="true"></td>
         <td contenteditable="true"></td>
         <td contenteditable="true"></td>
@@ -173,6 +176,7 @@ highlightDuplicates();
 
 </body>
 </html>
+
 
 
 
