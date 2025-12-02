@@ -20,7 +20,7 @@
 
   <h1>📋 Gestione Postazioni di Lavoro</h1>
 
-  <button class="btn" onclick="saveToGitHub()">💾 Salva su GitHub</button>
+  <button onclick="exportTableToJSON()">💾 Esporta in JSON</button>
   <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
 
   <table id="postazioni">
@@ -41,40 +41,39 @@
   </table>
 
   <script>
-    // Funzione per raccogliere i dati e inviare a GitHub
-    async function saveToGitHub() {
-      const rows = Array.from(document.querySelector("#postazioni tbody").rows).map(row => ({
-        stanza: row.cells[0].textContent.trim(),
-        scrivania: row.cells[1].textContent.trim(),
-        workstation: row.cells[2].textContent.trim(),
-        monitor: row.cells[3].textContent.trim(),
-        docking: row.cells[4].textContent.trim(),
-        note: row.cells[5].textContent.trim()
-      }));
 
-      // ⚠️ In produzione NON inserire il token qui, usa un backend o GitHub Actions
-      const token = inserimentodatiasset;
-      const repo = SamHarker/asset;
+function exportTableToJSON() {
+  const table = document.getElementById("postazioni");
+  const headers = [];
+  const data = [];
 
-      const response = await fetch(`https://api.github.com/repos/${repo}/dispatches`, {
-        method: "POST",
-        headers: {
-          "Accept": "application/vnd.github+json",
-          "Authorization": `Bearer ${token}`
-        },
-        body: JSON.stringify({
-          event_type: "update-json",
-          client_payload: { postazioni: rows }
-        })
-      });
+  // Leggi intestazioni
+  for (let th of table.querySelectorAll("thead th")) {
+    if (th.innerText !== "Azioni") headers.push(th.innerText);
+  }
 
-      if (response.ok) {
-        alert("✅ Workflow avviato: i dati verranno salvati su GitHub!");
-      } else {
-        alert("⚠️ Errore nell'avvio del workflow");
-        console.error(await response.json());
-      }
-    }
+  // Leggi righe
+  for (let row of table.querySelectorAll("tbody tr")) {
+    const rowData = {};
+    const cells = row.querySelectorAll("td");
+    cells.forEach((cell, i) => {
+      if (i < headers.length) rowData[headers[i]] = cell.innerText;
+    });
+    data.push(rowData);
+  }
+
+  // Converti in JSON
+  const json = JSON.stringify(data, null, 2);
+
+  // Scarica come file
+  const blob = new Blob([json], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "postazioni.json";
+  a.click();
+}
+
 
     // Popola la tabella con i dati caricati da JSON
     function populateTable(data) {
@@ -132,10 +131,46 @@
     
 <!-- Richiamo del tuo script -->
   script.js
+    function highlightDuplicates() {
+  const table = document.getElementById("postazioni");
+  const columnsToCheck = ["Workstation", "Monitor", "Docking"];
+  const headers = Array.from(table.querySelectorAll("thead th")).map(th => th.innerText);
+
+  // Reset colori
+  table.querySelectorAll("tbody td").forEach(cell => cell.style.backgroundColor = "");
+
+  columnsToCheck.forEach(colName => {
+    const colIndex = headers.indexOf(colName);
+    if (colIndex === -1) return;
+
+    const valuesMap = {};
+    const rows = table.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+      const cell = row.querySelectorAll("td")[colIndex];
+      let value = "";
+      const input = cell.querySelector("input");
+      value = input ? input.value.trim() : cell.innerText.trim();
+
+      if (value) {
+        if (valuesMap[value]) {
+          cell.style.backgroundColor = "#ffcccc";
+          valuesMap[value].style.backgroundColor = "#ffcccc";
+        } else {
+          valuesMap[value] = cell;
+        }
+      }
+    });
+  });
+}
+
+// Attiva controllo duplicati all'avvio
+highlightDuplicates();
   </script>
 
 </body>
 </html>
+
 
 
 
