@@ -1,29 +1,74 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Gestione Postazioni</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { font-family: Arial; background:#2b2b2b; color:white; text-align:center; }
-    table { border-collapse: collapse; width:90%; margin:20px auto; }
-    th, td { border:1px solid red; padding:8px; text-align:center; }
-    thead tr { background:black; }
-    tbody tr:nth-child(odd){ background:#4d4d4d; }
-    tbody tr:nth-child(even){ background:#808080; }
-    .btn { margin:10px; padding:10px 20px; background:red; color:white; border:none; border-radius:6px; cursor:pointer; }
-    .btn:hover { background:darkred; }
-    .remove-btn { background:#cc0000; color:white; border:none; padding:4px 8px; border-radius:4px; cursor:pointer; }
-    .remove-btn:hover { background:#990000; }
+    :root{
+      --btn-bg:#4CAF50;
+      --btn-bg-hover:#45a049;
+      --btn-color:#fff;
+      --border:#ccc;
+      --dup:#ffcccc;
+    }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 24px;
+      color:#222;
+    }
+    h1{ margin:0 0 12px; }
+    .toolbar{ margin-bottom: 12px; display:flex; gap:8px; flex-wrap:wrap; }
+    .btn{
+      background-color: var(--btn-bg);
+      color: var(--btn-color);
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn:hover{ background-color: var(--btn-bg-hover); }
+    table{
+      width:100%;
+      border-collapse: collapse;
+    }
+    th, td{
+      border:1px solid var(--border);
+      padding:8px;
+      vertical-align: middle;
+    }
+    th{ background:#f4f4f4; text-align:left; }
+    td input{
+      width:100%;
+      box-sizing:border-box;
+      padding:6px 8px;
+      border:1px solid #d0d0d0;
+      border-radius:4px;
+      font-size:14px;
+    }
+    .cell-dup{ background-color: var(--dup) !important; }
+    .actions-btn{
+      background:#e74c3c; color:#fff; border:none; padding:6px 10px; border-radius:4px; cursor:pointer;
+    }
+    .actions-btn:hover{ background:#c0392b; }
+    .hint{ color:#666; font-size:12px; margin-top:6px; }
+    @media (max-width:720px){
+      th, td{ font-size:13px; }
+      .btn{ padding:8px 12px; font-size:13px; }
+    }
   </style>
 </head>
 <body>
-
   <h1>📋 Gestione Postazioni di Lavoro</h1>
 
-  <button class="btn" onclick="exportTableToJSON()">💾 Esporta in JSON</button>
-  <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
+  <div class="toolbar">
+    <button class="btn" onclick="exportTableToJSON()">💾 Esporta in JSON</button>
+    <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
+  </div>
 
-  <table id="postazioni">
+  <table id="postazioni" aria-label="Tabella postazioni">
     <thead>
       <tr>
         <th>Stanza</th>
@@ -31,162 +76,159 @@
         <th>Workstation</th>
         <th>Monitor</th>
         <th>Docking</th>
-        <th>Modello Docking</th>
         <th>Note</th>
-        <th>Kensington</th>
         <th>Azioni</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Popolato automaticamente dal JSON -->
+      <!-- Riga di esempio (testo statico) -->
+      <tr>
+        <td>101</td>
+        <td>A1</td>
+        <td>WS-001</td>
+        <td>Monitor-24</td>
+        <td>Dock-HP</td>
+        <td>Prima postazione</td>
+        <td><button class="actions-btn" onclick="deleteRow(this)">❌</button></td>
+      </tr>
+      <!-- Esempio con input (mostra che export legge dagli input) -->
+      <tr>
+        <td><input type="text" placeholder="Stanza" value="102" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Scrivania" value="B2" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Workstation" value="WS-001" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Monitor" value="Monitor-24" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Docking" value="Dock-HP" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Note" value="Doppione voluto per test" oninput="highlightDuplicates()" /></td>
+        <td><button class="actions-btn" onclick="deleteRow(this)">❌</button></td>
+      </tr>
     </tbody>
   </table>
 
+  <p class="hint">Suggerimento: se vedi celle evidenziate, significa che ci sono duplicati in <strong>Workstation</strong>, <strong>Monitor</strong> o <strong>Docking</strong>.</p>
+
   <script>
+    /**
+     * Esporta la tabella in JSON leggendo correttamente:
+     * - il valore degli <input> (input.value)
+     * - il testo delle celle statiche (cell.innerText)
+     * Evita "undefined" usando una lettura condizionale.
+     */
+    function exportTableToJSON() {
+      const table = document.getElementById("postazioni");
+      const headers = [];
+      const data = [];
 
-function exportTableToJSON() {
-  const table = document.getElementById("postazioni");
-  const headers = [];
-  const data = [];
+      // Raccogli intestazioni escludendo "Azioni"
+      for (let th of table.querySelectorAll("thead th")) {
+        const name = th.innerText.trim();
+        if (name !== "Azioni") headers.push(name);
+      }
 
-  // Leggi intestazioni
-  for (let th of table.querySelectorAll("thead th")) {
-    if (th.innerText !== "Azioni") headers.push(th.innerText);
-  }
+      // Scorri le righe del corpo
+      for (let row of table.querySelectorAll("tbody tr")) {
+        const rowData = {};
+        const cells = row.querySelectorAll("td");
 
-  // Leggi righe
-  for (let row of table.querySelectorAll("tbody tr")) {
-    const rowData = {};
-    const cells = row.querySelectorAll("td");
-    cells.forEach((cell, i) => {
-      if (i < headers.length) rowData[headers[i]] = cell.innerText;
-    });
-    data.push(rowData);
-  }
+        cells.forEach((cell, i) => {
+          if (i < headers.length) {
+            const input = cell.querySelector("input");
+            const value = input ? input.value.trim() : cell.innerText.trim();
+            rowData[headers[i]] = value; // mai undefined: value è stringa (anche vuota)
+          }
+        });
 
-  // Converti in JSON
-  const json = JSON.stringify(data, null, 2);
+        data.push(rowData);
+      }
 
-  // Scarica come file
-  const blob = new Blob([json], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "postazioni.json";
-  a.click();
-}
-
-
-    // Popola la tabella con i dati caricati da JSON
-    function populateTable(data) {
-      const tbody = document.querySelector("#postazioni tbody");
-      tbody.innerHTML = "";
-      data.forEach(item => {
-        const row = tbody.insertRow();
-        row.innerHTML = `
-          <td contenteditable="true">${item.stanza}</td>
-          <td contenteditable="true">${item.scrivania}</td>
-          <td contenteditable="true">${item.workstation}</td>
-          <td contenteditable="true">${item.monitor}</td>
-          <td contenteditable="true">${item.docking}</td>
-          <td contenteditable="true">${item.modello_docking}</td>
-          <td contenteditable="true">${item.note}</td>
-          <td contenteditable="true">${item.kensington}</td>
-          <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
-        `;
-      });
-    }
-    
-    // Carica automaticamente i dati dal file JSON
-    async function loadJSON() {
-      try {
-        const response = await fetch("postazioni.json"); // deve trovarsi nella stessa cartella
-        if (!response.ok) throw new Error("File non trovato");
-        const data = await response.json();
-        populateTable(data);
-      } catch (error) {
-        alert("⚠️ Errore nel caricamento del JSON: " + error.message);
-        console.error(error);
-    }
+      const json = JSON.stringify(data, null, 2);
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "postazioni.json";
+      a.click();
+      URL.revokeObjectURL(url);
     }
 
-    // Funzione per aggiungere una nuova riga vuota
+    /**
+     * Aggiunge una nuova riga con input editabili
+     * e riattiva il controllo duplicati.
+     */
     function addRow() {
       const tbody = document.querySelector("#postazioni tbody");
-      const row = tbody.insertRow();
-      row.innerHTML = `
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td contenteditable="true"></td>
-        <td><button class="remove-btn" onclick="removeRow(this)">❌ Rimuovi</button></td>
+      const newRow = document.createElement("tr");
+      newRow.innerHTML = `
+        <td><input type="text" placeholder="Stanza" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Scrivania" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Workstation" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Monitor" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Docking" oninput="highlightDuplicates()" /></td>
+        <td><input type="text" placeholder="Note" oninput="highlightDuplicates()" /></td>
+        <td><button class="actions-btn" onclick="deleteRow(this)">❌</button></td>
       `;
+      tbody.appendChild(newRow);
+      highlightDuplicates();
     }
 
-    // Funzione per rimuovere una riga
-    function removeRow(button) {
-      button.closest("tr").remove();
+    /**
+     * Elimina una riga e ricalcola duplicati.
+     */
+    function deleteRow(btn) {
+      btn.closest("tr").remove();
+      highlightDuplicates();
     }
 
-    // Carica i dati automaticamente all’apertura
-    window.onload = loadJSON;
-    
-<!-- Richiamo del tuo script -->
-  script.js
+    /**
+     * Evidenzia duplicati nelle colonne:
+     * - Workstation
+     * - Monitor
+     * - Docking
+     * Funziona con celle statiche e con input.
+     * Si attiva automaticamente su input/change/add/delete e all'avvio.
+     */
     function highlightDuplicates() {
-  const table = document.getElementById("postazioni");
-  const columnsToCheck = ["Workstation", "Monitor", "Docking"];
-  const headers = Array.from(table.querySelectorAll("thead th")).map(th => th.innerText);
+      const table = document.getElementById("postazioni");
+      const columnsToCheck = ["Workstation", "Monitor", "Docking"];
+      const headers = Array.from(table.querySelectorAll("thead th")).map(th => th.innerText.trim());
 
-  // Reset colori
-  table.querySelectorAll("tbody td").forEach(cell => cell.style.backgroundColor = "");
+      // Pulisci eventuali evidenziazioni precedenti
+      table.querySelectorAll("tbody td").forEach(cell => cell.classList.remove("cell-dup"));
 
-  columnsToCheck.forEach(colName => {
-    const colIndex = headers.indexOf(colName);
-    if (colIndex === -1) return;
+      columnsToCheck.forEach(colName => {
+        const colIndex = headers.indexOf(colName);
+        if (colIndex === -1) return;
 
-    const valuesMap = {};
-    const rows = table.querySelectorAll("tbody tr");
+        const valuesMap = new Map();
+        const rows = table.querySelectorAll("tbody tr");
 
-    rows.forEach(row => {
-      const cell = row.querySelectorAll("td")[colIndex];
-      let value = "";
-      const input = cell.querySelector("input");
-      value = input ? input.value.trim() : cell.innerText.trim();
+        rows.forEach(row => {
+          const cell = row.querySelectorAll("td")[colIndex];
+          if (!cell) return;
 
-      if (value) {
-        if (valuesMap[value]) {
-          cell.style.backgroundColor = "#ffcccc";
-          valuesMap[value].style.backgroundColor = "#ffcccc";
-        } else {
-          valuesMap[value] = cell;
-        }
-      }
+          const input = cell.querySelector("input");
+          const value = (input ? input.value : cell.innerText).trim();
+
+          if (!value) return; // ignora vuoti
+
+          if (valuesMap.has(value)) {
+            // evidenzia sia la cella corrente che la prima occorrenza
+            cell.classList.add("cell-dup");
+            valuesMap.get(value).classList.add("cell-dup");
+          } else {
+            valuesMap.set(value, cell);
+          }
+        });
+      });
+    }
+
+    // Attiva il controllo duplicati all'avvio e su ogni modifica della tabella
+    document.addEventListener("DOMContentLoaded", () => {
+      highlightDuplicates();
+
+      // Osserva modifiche alla tabella (aggiunte/rimozioni di nodi)
+      const observer = new MutationObserver(() => highlightDuplicates());
+      observer.observe(document.querySelector("#postazioni tbody"), { childList: true, subtree: true });
     });
-  });
-}
-
-// Attiva controllo duplicati all'avvio
-highlightDuplicates();
   </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
