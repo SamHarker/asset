@@ -1,171 +1,204 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<title>Gestione Postazioni</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-  :root{
-    --btn-bg:#4CAF50;
-    --btn-bg-hover:#45a049;
-    --btn-color:#fff;
-    --border:#ccc;
-    --dup:#ffcccc;
-  }
-  body{ font-family:Arial, sans-serif; margin:20px; }
-  h1{ margin-bottom:12px; }
-  .toolbar{ margin-bottom:12px; display:flex; gap:8px; flex-wrap:wrap; }
-  .btn{
-    background-color: var(--btn-bg);
-    color: var(--btn-color);
-    border:none;
-    padding:10px 16px;
-    font-size:14px;
-    border-radius:6px;
-    cursor:pointer;
-  }
-  .btn:hover{ background-color: var(--btn-bg-hover); }
-  table{ width:100%; border-collapse:collapse; }
-  th, td{ border:1px solid var(--border); padding:8px; }
-  th{ background:#f4f4f4; text-align:left; }
-  td input{ width:100%; padding:6px; box-sizing:border-box; }
-  .cell-dup{ background-color: var(--dup) !important; }
-  .actions-btn{ background:#e74c3c; color:#fff; border:none; padding:6px 10px; border-radius:4px; cursor:pointer; }
-  .actions-btn:hover{ background:#c0392b; }
-</style>
+  <meta charset="UTF-8" />
+  <title>Gestione Postazioni</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --btn-bg:#4CAF50;
+      --btn-bg-hover:#45a049;
+      --btn-color:#fff;
+      --border:#ccc;
+      --dup:#ffcccc;
+    }
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      margin:20px; color:#222;
+    }
+    h1{ margin:0 0 12px; }
+    .toolbar{ margin-bottom:12px; display:flex; gap:8px; flex-wrap:wrap; }
+    .btn{
+      background-color: var(--btn-bg);
+      color: var(--btn-color);
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn:hover{ background-color: var(--btn-bg-hover); }
+    table{ width:100%; border-collapse: collapse; }
+    th, td{ border:1px solid var(--border); padding:8px; vertical-align: middle; }
+    th{ background:#f4f4f4; text-align:left; }
+    td input{
+      width:100%; box-sizing:border-box; padding:6px 8px;
+      border:1px solid #d0d0d0; border-radius:4px; font-size:14px;
+    }
+    .cell-dup{ background-color: var(--dup) !important; }
+    .actions-btn{
+      background:#e74c3c; color:#fff; border:none; padding:6px 10px;
+      border-radius:4px; cursor:pointer;
+    }
+    .actions-btn:hover{ background:#c0392b; }
+  </style>
 </head>
 <body>
-<h1>📋 Gestione Postazioni di Lavoro</h1>
-<div class="toolbar">
-  <button class="btn" onclick="exportTableToJSON()">💾 Esporta JSON</button>
-  <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
-</div>
-<table id="postazioni">
-  <thead>
-    <tr>
-      <th>Stanza</th>
-      <th>Scrivania</th>
-      <th>Workstation</th>
-      <th>Monitor</th>
-      <th>Docking</th>
-	  <th>Modello docking</th>
-      <th>Note</th>
-	  <th>Kensington</th>
-      <th>Azioni</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-<script>
-// Import automatico da postazioni.json
-// Funziona su GitHub Pages se il file è nella stessa cartella
+  <h1>📋 Gestione Postazioni di Lavoro</h1>
 
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("postazioni.json")
-    .then(response => {
-      if (!response.ok) throw new Error("Errore nel caricamento del file JSON");
-      return response.json();
-    })
-    .then(data => {
-      const tbody = document.querySelector("#postazioni tbody");
-      tbody.innerHTML = "";
-      data.forEach(item => {
-        const newRow = document.createElement("tr");
-        newRow.innerHTML = `
-          <td><input type="text" value="${item.Stanza || ''}" oninput="highlightDuplicates()" /></td>
-          <td><input type="text" value="${item.Scrivania || ''}" oninput="highlightDuplicates()" /></td>
-          <td><input type="text" value="${item.Workstation || ''}" oninput="highlightDuplicates()" /></td>
-          <td><input type="text" value="${item.Monitor || ''}" oninput="highlightDuplicates()" /></td>
-          <td><input type="text" value="${item.Docking || ''}" oninput="highlightDuplicates()" /></td>
-		  <td><input type="text" value="${item.Modello docking || ''}" oninput="highlightDuplicates()" /></td>
-          <td><input type="text" value="${item.Note || ''}" oninput="highlightDuplicates()" /></td>
-		  <td><input type="text" value="${item.Kensington || ''}" oninput="highlightDuplicates()" /></td>
-          <td><button class="actions-btn" onclick="deleteRow(this)">❌</button></td>
-        `;
-        tbody.appendChild(newRow);
+  <div class="toolbar">
+    <button class="btn" onclick="exportTableToJSON()">💾 Esporta JSON</button>
+    <button class="btn" onclick="addRow()">➕ Aggiungi riga</button>
+  </div>
+
+  <!-- Mantengo esattamente le tue colonne -->
+  <table id="postazioni" aria-label="Tabella postazioni">
+    <thead>
+      <tr>
+        <th>Stanza</th>
+        <th>Scrivania</th>
+        <th>Workstation</th>
+        <th>Monitor</th>
+        <th>Docking</th>
+        <th>Modello Docking</th>
+        <th>Note</th>
+        <th>Kensington</th>
+        <th>Azioni</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // Helpers
+    function getHeaders(){
+      return Array.from(document.querySelectorAll('#postazioni thead th'))
+                  .map(th => th.innerText.trim());
+    }
+    function isActionsColumn(name){ return name.toLowerCase() === 'azioni'; }
+    function escapeHtml(str){
+      return String(str).replace(/[&<>"']/g, s => ({
+        '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+      })[s]);
+    }
+
+    // Import automatico da postazioni.json (GitHub Pages)
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('postazioni.json')
+        .then(res => {
+          if(!res.ok) throw new Error('Impossibile caricare postazioni.json');
+          return res.json();
+        })
+        .then(json => renderRowsFromJSON(json))
+        .catch(err => console.warn('Import JSON:', err.message))
+        .finally(() => highlightDuplicates());
+    });
+
+    // Costruisce le righe basandosi sulle intestazioni reali (non le cambia)
+    function renderRowsFromJSON(jsonArray){
+      const headers = getHeaders();
+      const tbody = document.querySelector('#postazioni tbody');
+      tbody.innerHTML = '';
+
+      (jsonArray || []).forEach(item => {
+        const tr = document.createElement('tr');
+        headers.forEach(h => {
+          const td = document.createElement('td');
+
+          if(isActionsColumn(h)){
+            td.innerHTML = '<button class="actions-btn" onclick="deleteRow(this)">❌</button>';
+          }else{
+            const v = (item[h] !== undefined && item[h] !== null) ? item[h] : '';
+            td.innerHTML = `<input type="text" value="${escapeHtml(v)}" placeholder="${escapeHtml(h)}" oninput="highlightDuplicates()" />`;
+          }
+
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
       });
+    }
+
+    // Esporta in JSON usando le intestazioni reali (ignora la colonna Azioni)
+    function exportTableToJSON(){
+      const headers = getHeaders();
+      const rows = document.querySelectorAll('#postazioni tbody tr');
+      const data = [];
+
+      rows.forEach(row => {
+        const obj = {};
+        const cells = row.querySelectorAll('td');
+
+        headers.forEach((h, i) => {
+          if(isActionsColumn(h)) return; // salta Azioni
+          const cell = cells[i];
+          const input = cell ? cell.querySelector('input') : null;
+          const value = input ? input.value.trim() : (cell ? cell.innerText.trim() : '');
+          obj[h] = value;
+        });
+
+        data.push(obj);
+      });
+
+      const json = JSON.stringify(data, null, 2);
+      const blob = new Blob([json], { type:'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'postazioni.json'; a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Aggiunge una riga con input per OGNI colonna reale (senza modificarle)
+    function addRow(){
+      const headers = getHeaders();
+      const tr = document.createElement('tr');
+
+      headers.forEach(h => {
+        const td = document.createElement('td');
+        if(isActionsColumn(h)){
+          td.innerHTML = '<button class="actions-btn" onclick="deleteRow(this)">❌</button>';
+        }else{
+          td.innerHTML = `<input type="text" placeholder="${escapeHtml(h)}" oninput="highlightDuplicates()" />`;
+        }
+        tr.appendChild(td);
+      });
+
+      document.querySelector('#postazioni tbody').appendChild(tr);
       highlightDuplicates();
-    })
-    .catch(err => console.error("Import fallito:", err));
-});
+    }
 
-function exportTableToJSON() {
-  const table = document.getElementById("postazioni");
-  const headers = [];
-  const data = [];
-  for (let th of table.querySelectorAll("thead th")) {
-    if (th.innerText !== "Azioni") headers.push(th.innerText);
-  }
-  for (let row of table.querySelectorAll("tbody tr")) {
-    const rowData = {};
-    const cells = row.querySelectorAll("td");
-    cells.forEach((cell, i) => {
-      if (i < headers.length) {
-        const input = cell.querySelector("input");
-        const value = input ? input.value.trim() : cell.innerText.trim();
-        rowData[headers[i]] = value;
-      }
-    });
-    data.push(rowData);
-  }
-  const json = JSON.stringify(data, null, 2);
-  const blob = new Blob([json], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "postazioni.json";
-  a.click();
-  URL.revokeObjectURL(url);
-}
+    function deleteRow(btn){
+      btn.closest('tr').remove();
+      highlightDuplicates();
+    }
 
-function addRow() {
-  const tbody = document.querySelector("#postazioni tbody");
-  const newRow = document.createElement("tr");
-  newRow.innerHTML = `
-    <td><input type="text" placeholder="Stanza" oninput="highlightDuplicates()" /></td>
-    <td><input type="text" placeholder="Scrivania" oninput="highlightDuplicates()" /></td>
-    <td><input type="text" placeholder="Workstation" oninput="highlightDuplicates()" /></td>
-    <td><input type="text" placeholder="Monitor" oninput="highlightDuplicates()" /></td>
-    <td><input type="text" placeholder="Docking" oninput="highlightDuplicates()" /></td>
-	<td><input type="text" placeholder="Modello docking" oninput="highlightDuplicates()" /></td>
-    <td><input type="text" placeholder="Note" oninput="highlightDuplicates()" /></td>
-	<td><input type="text" placeholder="Kensington" oninput="highlightDuplicates()" /></td>
-    <td><button class="actions-btn" onclick="deleteRow(this)">❌</button></td>
-  `;
-  tbody.appendChild(newRow);
-  highlightDuplicates();
-}
+    // Evidenzia duplicati SOLO se le relative colonne esistono nel tuo thead
+    function highlightDuplicates(){
+      const headers = getHeaders();
+      const table = document.getElementById('postazioni');
+      const targetCols = ['Workstation','Monitor','Docking'];
+      const idxs = targetCols.map(c => headers.indexOf(c)).filter(i => i >= 0);
 
-function deleteRow(btn) {
-  btn.closest("tr").remove();
-  highlightDuplicates();
-}
+      // pulisci evidenziazioni
+      table.querySelectorAll('tbody td').forEach(td => td.classList.remove('cell-dup'));
+      if(idxs.length === 0) return;
 
-function highlightDuplicates() {
-  const table = document.getElementById("postazioni");
-  const columnsToCheck = ["Workstation", "Monitor", "Docking"];
-  const headers = Array.from(table.querySelectorAll("thead th")).map(th => th.innerText.trim());
-  table.querySelectorAll("tbody td").forEach(cell => cell.classList.remove("cell-dup"));
-  columnsToCheck.forEach(colName => {
-    const colIndex = headers.indexOf(colName);
-    if (colIndex === -1) return;
-    const valuesMap = new Map();
-    const rows = table.querySelectorAll("tbody tr");
-    rows.forEach(row => {
-      const cell = row.querySelectorAll("td")[colIndex];
-      const input = cell.querySelector("input");
-      const value = (input ? input.value : cell.innerText).trim();
-      if (!value) return;
-      if (valuesMap.has(value)) {
-        cell.classList.add("cell-dup");
-        valuesMap.get(value).classList.add("cell-dup");
-      } else {
-        valuesMap.set(value, cell);
-      }
-    });
-  });
-}
-</script>
-</body>
-</html>
+      const rows = table.querySelectorAll('tbody tr');
+      idxs.forEach(colIndex => {
+        const seen = new Map();
+        rows.forEach(row => {
+          const cell = row.querySelectorAll('td')[colIndex];
+          if(!cell) return;
+          const input = cell.querySelector('input');
+          const value = (input ? input.value : cell.textContent).trim();
+          if(!value) return;
+
+          if(seen.has(value)){
+            cell.classList.add('cell-dup');
+            seen.get(value).classList.add('cell-dup');
+          }else{
+            seen.set(value, cell);
+          }
+        });
+      });
+    }
+  </script>
