@@ -4,7 +4,8 @@
     "scrivania": "1",
     "workstation": "CNK9221GVV",
     "monitor": "1H9521ZN8P",
-    "docking": "XB2002",
+    "docking": "n/a",
+    "kensington": "XB2002",
     "note": ""
   },
   {
@@ -12,7 +13,8 @@
     "scrivania": "2",
     "workstation": "CNK9221GWR",
     "monitor": "1H9521ZNPK",
-    "docking": "XB2002",
+    "docking": "n/a",
+    "kensington": "XB2002",
     "note": "Manca etichetta desk"
   },
   {
@@ -21,6 +23,7 @@
     "workstation": "CNK9221GWR",
     "monitor": "1H9521ZN8P",
     "docking": "XB2002",
+    "kensington": "XB2002",
     "note": ""
   }
 ]
