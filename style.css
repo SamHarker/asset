@@ -54,7 +54,7 @@ table {
 /* Colonna 1: Stanza */
 #postazioni th:nth-child(1),
 #postazioni td:nth-child(1) {
-  width: 80px; /* più stretta */
+  width: 60px; /* più stretta */
 }
 
 /* Colonna 2: Scrivania */
