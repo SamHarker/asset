@@ -85,7 +85,7 @@
 
     // Import automatico da postazioni.json (GitHub Pages)
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('postazioni.json')
+      fetch('postazioni.json?t=' + Date.now())
         .then(res => {
           if(!res.ok) throw new Error('Impossibile caricare postazioni.json');
           return res.json();
@@ -203,4 +203,5 @@
       });
     }
   </script>
+
 
