@@ -1,4 +1,3 @@
-<style>
     :root{
       --btn-bg:#4CAF50;
       --btn-bg-hover:#45a049;
@@ -105,5 +104,3 @@ table {
 #postazioni td:nth-child(9) {
   width: 60px; /* molto stretta per il bottone */
 }
-
-  </style>
