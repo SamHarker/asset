@@ -160,9 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
       tbody.appendChild(newRow);
     });
     highlightDuplicates();
-  };
-  reader.readAsText(file);
-}
+  })
+    .catch(err => console.error("Import fallito:", err));
+});
 
 
     /**
@@ -249,6 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 </body>
 </html>
+
 
 
 
